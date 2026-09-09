@@ -1,0 +1,202 @@
+[
+  {
+    "id": 1,
+    "title": "Omelette nature",
+    "description": "Une omelette simple et rapide, parfaite pour un repas express.",
+    "ingredients": ["3 œufs", "sel", "poivre", "1 noix de beurre"],
+    "difficulty": "easy",
+    "prepTimeMinutes": 10,
+    "servings": 1,
+    "createdAt": "2026-01-05T08:00:00.000Z"
+  },
+  {
+    "id": 2,
+    "title": "Salade de tomates",
+    "description": "Une salade fraîche et légère à l'huile d'olive.",
+    "ingredients": ["4 tomates", "1 oignon rouge", "huile d'olive", "basilic"],
+    "difficulty": "easy",
+    "prepTimeMinutes": 15,
+    "servings": 2,
+    "createdAt": "2026-01-05T08:05:00.000Z"
+  },
+  {
+    "id": 3,
+    "title": "Pâtes à la carbonara",
+    "description": "Le grand classique italien, sans crème.",
+    "ingredients": ["400g de spaghetti", "200g de pancetta", "4 jaunes d'œufs", "parmesan", "poivre"],
+    "difficulty": "medium",
+    "prepTimeMinutes": 25,
+    "servings": 4,
+    "createdAt": "2026-01-05T08:10:00.000Z"
+  },
+  {
+    "id": 4,
+    "title": "Risotto aux champignons",
+    "description": "Un risotto crémeux à réaliser avec patience.",
+    "ingredients": ["320g de riz arborio", "300g de champignons", "1L de bouillon", "1 oignon", "parmesan"],
+    "difficulty": "medium",
+    "prepTimeMinutes": 40,
+    "servings": 4,
+    "createdAt": "2026-01-05T08:15:00.000Z"
+  },
+  {
+    "id": 5,
+    "title": "Bœuf bourguignon",
+    "description": "Un plat mijoté traditionnel français, à préparer la veille de préférence.",
+    "ingredients": ["1kg de bœuf à braiser", "750ml de vin rouge", "lardons", "carottes", "oignons", "bouquet garni"],
+    "difficulty": "hard",
+    "prepTimeMinutes": 210,
+    "servings": 6,
+    "createdAt": "2026-01-05T08:20:00.000Z"
+  },
+  {
+    "id": 6,
+    "title": "Croque-monsieur",
+    "description": "Un sandwich chaud au jambon et fromage.",
+    "ingredients": ["2 tranches de pain de mie", "1 tranche de jambon", "emmental râpé", "béchamel"],
+    "difficulty": "easy",
+    "prepTimeMinutes": 15,
+    "servings": 1,
+    "createdAt": "2026-01-05T08:25:00.000Z"
+  },
+  {
+    "id": 7,
+    "title": "Ratatouille",
+    "description": "Un mijoté de légumes du sud, meilleur réchauffé.",
+    "ingredients": ["2 aubergines", "3 courgettes", "3 poivrons", "4 tomates", "1 oignon", "herbes de Provence"],
+    "difficulty": "medium",
+    "prepTimeMinutes": 60,
+    "servings": 6,
+    "createdAt": "2026-01-05T08:30:00.000Z"
+  },
+  {
+    "id": 8,
+    "title": "Tarte Tatin",
+    "description": "Une tarte aux pommes caramélisées et renversée.",
+    "ingredients": ["6 pommes", "150g de sucre", "80g de beurre", "1 pâte feuilletée"],
+    "difficulty": "hard",
+    "prepTimeMinutes": 75,
+    "servings": 6,
+    "createdAt": "2026-01-05T08:35:00.000Z"
+  },
+  {
+    "id": 9,
+    "title": "Guacamole",
+    "description": "Une sauce mexicaine fraîche à l'avocat.",
+    "ingredients": ["2 avocats", "1 citron vert", "1 tomate", "coriandre", "1 piment"],
+    "difficulty": "easy",
+    "prepTimeMinutes": 15,
+    "servings": 4,
+    "createdAt": "2026-01-05T08:40:00.000Z"
+  },
+  {
+    "id": 10,
+    "title": "Curry de poulet",
+    "description": "Un curry parfumé au lait de coco.",
+    "ingredients": ["4 filets de poulet", "400ml de lait de coco", "2 c.à.s de pâte de curry", "1 oignon", "riz"],
+    "difficulty": "medium",
+    "prepTimeMinutes": 35,
+    "servings": 4,
+    "createdAt": "2026-01-05T08:45:00.000Z"
+  },
+  {
+    "id": 11,
+    "title": "Quiche lorraine",
+    "description": "Une quiche traditionnelle aux lardons.",
+    "ingredients": ["1 pâte brisée", "200g de lardons", "3 œufs", "20cl de crème fraîche", "muscade"],
+    "difficulty": "medium",
+    "prepTimeMinutes": 50,
+    "servings": 6,
+    "createdAt": "2026-01-05T08:50:00.000Z"
+  },
+  {
+    "id": 12,
+    "title": "Soupe à l'oignon",
+    "description": "Une soupe mijotée gratinée au fromage.",
+    "ingredients": ["6 oignons", "1L de bouillon de bœuf", "pain", "gruyère râpé"],
+    "difficulty": "easy",
+    "prepTimeMinutes": 50,
+    "servings": 4,
+    "createdAt": "2026-01-05T08:55:00.000Z"
+  },
+  {
+    "id": 13,
+    "title": "Paella",
+    "description": "Un plat espagnol convivial au riz safrané.",
+    "ingredients": ["400g de riz rond", "500g de fruits de mer", "poulet", "safran", "poivrons", "petits pois"],
+    "difficulty": "hard",
+    "prepTimeMinutes": 90,
+    "servings": 6,
+    "createdAt": "2026-01-05T09:00:00.000Z"
+  },
+  {
+    "id": 14,
+    "title": "Houmous",
+    "description": "Une tartinade libanaise à base de pois chiches.",
+    "ingredients": ["400g de pois chiches", "2 c.à.s de tahini", "1 citron", "1 gousse d'ail", "huile d'olive"],
+    "difficulty": "easy",
+    "prepTimeMinutes": 10,
+    "servings": 4,
+    "createdAt": "2026-01-05T09:05:00.000Z"
+  },
+  {
+    "id": 15,
+    "title": "Lasagnes bolognaise",
+    "description": "Un plat familial en couches, sauce tomate et béchamel.",
+    "ingredients": ["plaques de lasagnes", "500g de bœuf haché", "sauce tomate", "béchamel", "parmesan"],
+    "difficulty": "medium",
+    "prepTimeMinutes": 90,
+    "servings": 6,
+    "createdAt": "2026-01-05T09:10:00.000Z"
+  },
+  {
+    "id": 16,
+    "title": "Pancakes",
+    "description": "Des pancakes moelleux pour le petit-déjeuner.",
+    "ingredients": ["250g de farine", "2 œufs", "300ml de lait", "1 sachet de levure", "sucre"],
+    "difficulty": "easy",
+    "prepTimeMinutes": 20,
+    "servings": 4,
+    "createdAt": "2026-01-05T09:15:00.000Z"
+  },
+  {
+    "id": 17,
+    "title": "Poulet basquaise",
+    "description": "Un plat mijoté aux poivrons et tomates.",
+    "ingredients": ["1 poulet découpé", "3 poivrons", "4 tomates", "1 oignon", "piment d'Espelette"],
+    "difficulty": "medium",
+    "prepTimeMinutes": 60,
+    "servings": 4,
+    "createdAt": "2026-01-05T09:20:00.000Z"
+  },
+  {
+    "id": 18,
+    "title": "Tiramisu",
+    "description": "Un dessert italien au café et mascarpone, sans cuisson.",
+    "ingredients": ["500g de mascarpone", "4 œufs", "biscuits à la cuillère", "café", "cacao en poudre"],
+    "difficulty": "medium",
+    "prepTimeMinutes": 30,
+    "servings": 6,
+    "createdAt": "2026-01-05T09:25:00.000Z"
+  },
+  {
+    "id": 19,
+    "title": "Choucroute garnie",
+    "description": "Un plat alsacien copieux, mijoté longuement.",
+    "ingredients": ["1kg de choucroute crue", "saucisses fumées", "lard", "pommes de terre", "genièvre"],
+    "difficulty": "hard",
+    "prepTimeMinutes": 150,
+    "servings": 6,
+    "createdAt": "2026-01-05T09:30:00.000Z"
+  },
+  {
+    "id": 20,
+    "title": "Smoothie banane-fraise",
+    "description": "Une boisson fruitée rapide à préparer.",
+    "ingredients": ["2 bananes", "150g de fraises", "200ml de lait", "1 c.à.s de miel"],
+    "difficulty": "easy",
+    "prepTimeMinutes": 5,
+    "servings": 2,
+    "createdAt": "2026-01-05T09:35:00.000Z"
+  }
+]
