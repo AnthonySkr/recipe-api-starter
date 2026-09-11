@@ -1,5 +1,10 @@
-import { Injectable, NotFoundException } from '@nestjs/common';
+import {
+  ConflictException,
+  Injectable,
+  NotFoundException,
+} from '@nestjs/common';
 import { StorageService } from '../storage/storage.service';
+import { CreateRecipeDto } from './dto/create-recipe.dto';
 import { QueryRecipeDto } from './dto/query-recipe.dto';
 import { Difficulty } from './difficulty.enum';
 
@@ -50,6 +55,25 @@ export class RecipesService {
     if (!recipe) {
       throw new NotFoundException(`Recipe with id ${id} not found`);
     }
+    return recipe;
+  }
+
+  create(dto: CreateRecipeDto): Recipe {
+    const recipes = this.readAll();
+    const title = dto.title.toLowerCase();
+    if (recipes.some((r) => r.title.toLowerCase() === title)) {
+      throw new ConflictException(
+        `A recipe with title "${dto.title}" already exists`,
+      );
+    }
+
+    const recipe: Recipe = {
+      id: Math.max(0, ...recipes.map((r) => r.id)) + 1,
+      ...dto,
+      createdAt: new Date().toISOString(),
+    };
+    recipes.push(recipe);
+    this.storage.write(RECIPES_FILE, recipes);
     return recipe;
   }
 
