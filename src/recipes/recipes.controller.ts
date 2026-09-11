@@ -16,6 +16,7 @@ import type { PaginatedRecipes, Recipe } from './recipes.service';
 import { CreateRecipeDto } from './dto/create-recipe.dto';
 import { QueryRecipeDto } from './dto/query-recipe.dto';
 import { UpdateRecipeDto } from './dto/update-recipe.dto';
+import { AdminOnly } from '../common/decorators/admin.decorator';
 
 @Controller('recipes')
 export class RecipesController {
@@ -45,6 +46,7 @@ export class RecipesController {
     return this.recipesService.update(id, body);
   }
 
+  @AdminOnly()
   @Delete(':id')
   @HttpCode(HttpStatus.NO_CONTENT)
   remove(@Param('id', ParseIntPipe) id: number): void {

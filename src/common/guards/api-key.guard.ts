@@ -9,10 +9,10 @@ import { Reflector } from '@nestjs/core';
 import type { Request } from 'express';
 import { IS_PUBLIC_KEY } from '../decorators/public.decorator';
 import { AuthService } from '../../auth/auth.service';
-import type { ApiKey } from '../../auth/auth.service';
+import type { User } from '../../auth/auth.service';
 
 export interface AuthenticatedRequest extends Request {
-  user?: ApiKey;
+  user?: User;
 }
 
 @Injectable()

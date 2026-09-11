@@ -1,4 +1,18 @@
 [
-  { "key": "exam-nestjs-2026-key-01", "owner": "correcteur" },
-  { "key": "exam-nestjs-2026-key-02", "owner": "etudiant-test" }
+  {
+    "id": "00000000-0000-0000-0000-000000000001",
+    "email": "correcteur@recipeapi.dev",
+    "owner": "correcteur",
+    "role": "admin",
+    "key": "exam-nestjs-2026-key-01",
+    "createdAt": "2026-01-01T00:00:00.000Z"
+  },
+  {
+    "id": "00000000-0000-0000-0000-000000000002",
+    "email": "etudiant-test@recipeapi.dev",
+    "owner": "etudiant-test",
+    "role": "user",
+    "key": "exam-nestjs-2026-key-02",
+    "createdAt": "2026-01-01T00:00:00.000Z"
+  }
 ]
