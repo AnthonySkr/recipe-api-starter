@@ -6,6 +6,7 @@ import {
   HttpStatus,
   Param,
   ParseIntPipe,
+  Patch,
   Post,
   Query,
 } from '@nestjs/common';
@@ -13,6 +14,7 @@ import { RecipesService } from './recipes.service';
 import type { PaginatedRecipes, Recipe } from './recipes.service';
 import { CreateRecipeDto } from './dto/create-recipe.dto';
 import { QueryRecipeDto } from './dto/query-recipe.dto';
+import { UpdateRecipeDto } from './dto/update-recipe.dto';
 
 @Controller('recipes')
 export class RecipesController {
@@ -32,5 +34,13 @@ export class RecipesController {
   @HttpCode(HttpStatus.CREATED)
   create(@Body() body: CreateRecipeDto): Recipe {
     return this.recipesService.create(body);
+  }
+
+  @Patch(':id')
+  update(
+    @Param('id', ParseIntPipe) id: number,
+    @Body() body: UpdateRecipeDto,
+  ): Recipe {
+    return this.recipesService.update(id, body);
   }
 }

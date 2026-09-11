@@ -6,6 +6,7 @@ import {
 import { StorageService } from '../storage/storage.service';
 import { CreateRecipeDto } from './dto/create-recipe.dto';
 import { QueryRecipeDto } from './dto/query-recipe.dto';
+import { UpdateRecipeDto } from './dto/update-recipe.dto';
 import { Difficulty } from './difficulty.enum';
 
 export interface Recipe {
@@ -60,12 +61,7 @@ export class RecipesService {
 
   create(dto: CreateRecipeDto): Recipe {
     const recipes = this.readAll();
-    const title = dto.title.toLowerCase();
-    if (recipes.some((r) => r.title.toLowerCase() === title)) {
-      throw new ConflictException(
-        `A recipe with title "${dto.title}" already exists`,
-      );
-    }
+    this.assertTitleAvailable(recipes, dto.title);
 
     const recipe: Recipe = {
       id: Math.max(0, ...recipes.map((r) => r.id)) + 1,
@@ -75,6 +71,38 @@ export class RecipesService {
     recipes.push(recipe);
     this.storage.write(RECIPES_FILE, recipes);
     return recipe;
+  }
+
+  update(id: number, dto: UpdateRecipeDto): Recipe {
+    const recipes = this.readAll();
+    const index = recipes.findIndex((r) => r.id === id);
+    if (index === -1) {
+      throw new NotFoundException(`Recipe with id ${id} not found`);
+    }
+    if (dto.title !== undefined) {
+      this.assertTitleAvailable(recipes, dto.title, id);
+    }
+
+    const updated: Recipe = { ...recipes[index], ...dto };
+    recipes[index] = updated;
+    this.storage.write(RECIPES_FILE, recipes);
+    return updated;
+  }
+
+  private assertTitleAvailable(
+    recipes: Recipe[],
+    title: string,
+    excludeId?: number,
+  ): void {
+    const normalized = title.toLowerCase();
+    const taken = recipes.some(
+      (r) => r.id !== excludeId && r.title.toLowerCase() === normalized,
+    );
+    if (taken) {
+      throw new ConflictException(
+        `A recipe with title "${title}" already exists`,
+      );
+    }
   }
 
   private readAll(): Recipe[] {
