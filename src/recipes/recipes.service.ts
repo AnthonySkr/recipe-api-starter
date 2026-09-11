@@ -106,15 +106,19 @@ export class RecipesService {
     title: string,
     excludeId?: number,
   ): void {
-    const normalized = title.toLowerCase();
+    const normalized = this.normalizeTitle(title);
     const taken = recipes.some(
-      (r) => r.id !== excludeId && r.title.toLowerCase() === normalized,
+      (r) => r.id !== excludeId && this.normalizeTitle(r.title) === normalized,
     );
     if (taken) {
       throw new ConflictException(
         `A recipe with title "${title}" already exists`,
       );
     }
+  }
+
+  private normalizeTitle(title: string): string {
+    return title.replace(/\s+/g, '').toLowerCase();
   }
 
   private readAll(): Recipe[] {

@@ -1,3 +1,4 @@
+import { Transform } from 'class-transformer';
 import {
   ArrayNotEmpty,
   IsArray,
@@ -12,6 +13,9 @@ import {
 import { Difficulty } from '../difficulty.enum';
 
 export class CreateRecipeDto {
+  @Transform(({ value }: { value: unknown }) =>
+    typeof value === 'string' ? value.trim() : value,
+  )
   @IsString()
   @IsNotEmpty()
   @MaxLength(200)
