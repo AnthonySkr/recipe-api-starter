@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
 import { StorageService } from '../storage/storage.service';
 
 export interface Recipe {
@@ -20,5 +20,13 @@ export class RecipesService {
 
   findAll(): Recipe[] {
     return this.storage.read<Recipe[]>(RECIPES_FILE);
+  }
+
+  findOne(id: number): Recipe {
+    const recipe = this.findAll().find((r) => r.id === id);
+    if (!recipe) {
+      throw new NotFoundException(`Recipe with id ${id} not found`);
+    }
+    return recipe;
   }
 }
