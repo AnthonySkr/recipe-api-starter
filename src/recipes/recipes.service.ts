@@ -1,13 +1,14 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { StorageService } from '../storage/storage.service';
 import { QueryRecipeDto } from './dto/query-recipe.dto';
+import { Difficulty } from './difficulty.enum';
 
 export interface Recipe {
   id: number;
   title: string;
   description: string;
   ingredients: string[];
-  difficulty: 'easy' | 'medium' | 'hard';
+  difficulty: Difficulty;
   prepTimeMinutes: number;
   servings: number;
   createdAt: string;
@@ -31,7 +32,9 @@ export class RecipesService {
   findAll(query: QueryRecipeDto): PaginatedRecipes {
     const page = query.page ?? DEFAULT_PAGE;
     const limit = query.limit ?? DEFAULT_LIMIT;
-    const recipes = this.readAll();
+    const recipes = query.difficulty
+      ? this.readAll().filter((r) => r.difficulty === query.difficulty)
+      : this.readAll();
     const start = (page - 1) * limit;
 
     return {
