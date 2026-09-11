@@ -1,6 +1,7 @@
 import {
   Body,
   Controller,
+  Delete,
   Get,
   HttpCode,
   HttpStatus,
@@ -42,5 +43,11 @@ export class RecipesController {
     @Body() body: UpdateRecipeDto,
   ): Recipe {
     return this.recipesService.update(id, body);
+  }
+
+  @Delete(':id')
+  @HttpCode(HttpStatus.NO_CONTENT)
+  remove(@Param('id', ParseIntPipe) id: number): void {
+    this.recipesService.remove(id);
   }
 }

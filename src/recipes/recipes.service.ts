@@ -75,10 +75,7 @@ export class RecipesService {
 
   update(id: number, dto: UpdateRecipeDto): Recipe {
     const recipes = this.readAll();
-    const index = recipes.findIndex((r) => r.id === id);
-    if (index === -1) {
-      throw new NotFoundException(`Recipe with id ${id} not found`);
-    }
+    const index = this.findIndexOrFail(recipes, id);
     if (dto.title !== undefined) {
       this.assertTitleAvailable(recipes, dto.title, id);
     }
@@ -87,6 +84,21 @@ export class RecipesService {
     recipes[index] = updated;
     this.storage.write(RECIPES_FILE, recipes);
     return updated;
+  }
+
+  remove(id: number): void {
+    const recipes = this.readAll();
+    const index = this.findIndexOrFail(recipes, id);
+    recipes.splice(index, 1);
+    this.storage.write(RECIPES_FILE, recipes);
+  }
+
+  private findIndexOrFail(recipes: Recipe[], id: number): number {
+    const index = recipes.findIndex((r) => r.id === id);
+    if (index === -1) {
+      throw new NotFoundException(`Recipe with id ${id} not found`);
+    }
+    return index;
   }
 
   private assertTitleAvailable(
